@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet" />
+  
+
     <style>
       html {
         scroll-behavior: smooth;
@@ -24,44 +26,51 @@
 
   
 
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full z-50 bg-white shadow-sm">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-lg font-bold">Your Name</h1>
+ <!-- NAVBAR -->
+   <nav class="fixed top-0 w-full z-50 bg-white shadow">
+  <div class="max-w-7xl mx-auto px-6 py-4 relative flex justify-between items-center">
 
-    <!-- Hamburger (Mobile only) -->
-    <div class="md:hidden">
-      <input type="checkbox" id="menu-toggle" class="hidden peer" />
-      <label for="menu-toggle" class="cursor-pointer">
-        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </label>
-    </div>
+    <h1 class="text-xl font-bold">Your Name</h1>
+
+    <!-- Hamburger Button -->
+    <button id="menu-toggle" class="md:hidden">
+      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
 
     <!-- Desktop Menu -->
     <ul class="hidden md:flex gap-8 text-base">
-      <li><a href="#about" class="hover:text-gray-400">About</a></li>
-      <li><a href="#projects" class="hover:text-gray-400">Projects</a></li>
-      <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+      <li><a href="#about" class="hover:text-blue-500">About</a></li>
+      <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+      <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
     </ul>
-  </div>
 
-  <!-- Mobile Menu BELOW checkbox to make peer-checked work -->
-  <div class="peer-checked:flex hidden flex-col md:hidden px-6 pb-4 bg-white">
-    <a href="#about" class="py-2 border-b hover:text-gray-600">About</a>
-    <a href="#projects" class="py-2 border-b hover:text-gray-600">Projects</a>
-    <a href="#contact" class="py-2 hover:text-gray-600">Contact</a>
+    <!-- Mobile Menu (inside the same container as the hamburger) -->
+    <div id="mobile-menu"
+         class="hidden absolute right-0 top-14 bg-white shadow-lg rounded-lg px-6 py-4 space-y-2 w-40 md:hidden z-50">
+      <a href="#about" class="block text-right hover:text-blue-600 border-b pb-2">About</a>
+      <a href="#projects" class="block text-right hover:text-blue-600 border-b pb-2">Projects</a>
+      <a href="#contact" class="block text-right hover:text-blue-600">Contact</a>
+    </div>
   </div>
 </nav>
 
 
+     <!-- Mobile Menu -->
+<div id="mobile-menu"
+     class="hidden absolute right-6 top-16 bg-white shadow-lg rounded-lg px-6 py-4 space-y-2 w-40 md:hidden z-50">
+  <a href="#about" class="block text-right hover:text-blue-600 border-b pb-2">About</a>
+  <a href="#projects" class="block text-right hover:text-blue-600 border-b pb-2">Projects</a>
+  <a href="#contact" class="block text-right hover:text-blue-600">Contact</a>
+</div>
 
     <!-- HERO SECTION -->
-    <section class="relative h-screen flex items-center justify-center text-white text-center overflow-hidden">
-       <img src="Images/P1.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-40 -z-10" /> <div class="px-4">
+    <section class="relative h-screen flex items-center justify-center text-white text-center overflow-hidden" >
+      <img src="Images/P1.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-40 -z-10" />
+      <div class="px-4">
         <h2 class="text-sm uppercase tracking-widest text-gray-300 mb-4">Full Stack Web Developer | Laravel Developer</h2>
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">Hi, I'm <span class="text-blue-600">Your Name</span></h1>
         <p class="max-w-2xl mx-auto text-gray-200 text-lg px-4">I design and build elegant, user-centric web experiences using modern technologies.</p>
@@ -80,7 +89,7 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="py-24 bg-white">
+    <section id="projects" class="py-24 bg-white ">
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
         <div class="space-y-16">
@@ -171,5 +180,13 @@
     <footer class="text-center py-6 bg-black text-gray-400 text-sm">
       © 2025 Your Name • Built with Tailwind CSS
     </footer>
+     <script>
+      const toggleBtn = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      toggleBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
   </body>
 </html>
